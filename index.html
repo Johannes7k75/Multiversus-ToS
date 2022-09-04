@@ -1,9 +1,257 @@
-<html>
-<head></head>
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<title>Multiversus Stats - ToS </title>
+	<link rel="shortcut icon"
+		href="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
+		type="image/x-icon">
+</head>
+
 <body>
-  <h1>Terms and Conditions of <strong>MultiVersus</strong></h1>
-  
-  <h2>Contact</h2>
-  <p>If you have any problems or questions contact us via email <a href="mailto://multiversus.stats.contact@gmail.com">multiversus.stats.contact@gmail.com</a></p>
+	<div class="content" id="main">
+		<img onclick="sendTo('main')" id="logo"
+			src="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
+			alt="Multiversus Logo">
+		<button onclick="sendTo('tos')">Terms of Service</button><button onclick="sendTo('policy')">Privacy
+			Policy</button>
+	</div>
+	<div class="content" id="tos">
+		<img onclick="sendTo('main')" id="logo"
+			src="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
+			alt="Multiversus Logo">
+		<h1 id="caption">Terms and Conditions of <strong>MultiVersus</strong> bot</h1>
+
+		<h2 class="title">User agreement</h2>
+		<p>
+			By inviting the bot to your server, you agree to the terms of use listed below.<br><br>
+			You acknowledge that you have the right to freely use the Bot on any Discord server (servers) you share with
+			it,
+			that you may invite it to any server for which you have "manage server" privileges, and that this right may
+			be
+			revoked if you violate this Bot's terms and/or policies or Discord Inc.'s Terms of Use, Privacy Policy,
+			and/or
+			Community Guidelines.<br><br>
+			By inviting you, the bot may collect certain data as described in its policy.
+			This data is used for core functions of the bot such as command handling, guild-specific settings.
+		</p>
+
+		<h2 class="title">Intended age</h2>
+		<p>
+			The bot may not be used by persons under the minimum age described in Discord's Terms of Use.
+			Features such as commands marked as "NSFW" (Not safe for work) may not be used by individuals who are under
+			the
+			age of majority in their country. This will be considered a violation of the Terms of Use and will result in
+			the
+			bot being removed from all servers you own.
+		</p>
+
+		<h2 class="title">Affiliation</h2>
+		<p>
+			The bot is not affiliated with, endorsed by, or produced by Discord Inc.
+			Any direct association with Discord or any of its trademarks is purely coincidental. We do not claim any
+			copyright to Discord's assets, trademarks or other intellectual property.
+		</p>
+
+		<h2 class="title">Liability</h2>
+		<p>
+			The owner of the bot cannot be held liable for anyone who violates these terms at any time.
+			He trusts that the end users will be truthful with their information and not misuse this bot or Discord Inc
+			services in a malicious way.<br><br>
+			We reserve the right to update these Terms at our discretion, and give you 1 week (7 days) notice to
+			withdraw
+			from these Terms if you do not agree with the new changes.
+			You can unsubscribe by removing the bot from any server for which you have the rights.
+
+		</p>
+
+		<h2 class="title">Contact</h2>
+		<p>
+			If you have any problems or questions contact us via email
+			<a href="mailto://multiversus.stats.contact@gmail.com">multiversus.stats.contact@gmail.com</a>
+			Other ways of support are possible, but are not guaranteed.
+		</p>
+
+		<p id="updated">Last Updated <mark class="date">4.09.2022</mark></p>
+	</div>
+	<div class="content" id="policy">
+		<img onclick="sendTo('main')" id="logo"
+			src="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
+			alt="Multiversus Logo">
+		<h1 id="caption">Privacy policy of <strong>MultiVersus</strong> bot</h1>
+
+		<h2 class="title">Usage of stored data</h2>
+		<p>
+			The bot may use stored data, as defined below, for various functions.<br><br>
+			Outside of the above cases, the data will not be used and the data will not be shared with any third party.
+		</p>
+
+		<h2 class="title">Stored information</h2>
+		<p>
+			The bot only saves data when you give it to it. No data will be saved automatically!<br>
+			The following data is stored locally.
+			<br>
+		<p class="listTitle">Set command. If the users sets the channel where the bots reacts!</p>
+		<ul>
+			<li>guildId - the id of the guild/server </li>
+			<li>channelId - the id of the channel</li>
+		</ul>
+
+		<p class="listTitle">Link command. If the users links a username from the game with his account.</p>
+		<ul>
+			<li>userId - the id of the user</li>
+			<li>account_id - the account id of the user from the game (gets fetched from the game api)</li>
+		</ul>
+		No other information is stored other than that mentioned above.
+		</p>
+
+		<h2 class="title">Update data</h2>
+		<p>
+			The data can be updated when using certain commands.
+			Updating data requires the input of an end user.<br>
+			No other actions can update the stored information at a given time.
+		</p>
+
+		<h2 class="title">Removing data</h2>
+		<p>
+			The bot doesn't remove data automatically.
+		</p>
+
+		<h2 class="title">Manual removal</h2>
+		<p>
+			Manual removal of the data can be requested by emailing <a
+				href="mailto://multiversus.stats.contact@gmail.com">multiversus.stats.contact@gmail.com</a>.
+
+			For security reasons, we ask that you provide us with proof of ownership of the server from which you wish
+			to have the data removed. Only the owner of the server can request manual removal of the data, and the bot
+			will be removed from the server if it is still present on it.
+		</p>
+
+		<p id="updated">Last Updated <mark class="date">4.09.2022</mark></p>
+	</div>
 </body>
+
 </html>
+
+
+<script>
+	window.onload = function () {
+		let site = new URLSearchParams(document.URL.split("?")[1]).get("site");
+		let baseUrl = document.baseURI.split("?")[0];
+		Array.from(document.getElementsByClassName("content")).forEach(site => site.setAttribute("style", "display: none;"));
+		if (site === "tos") {
+			console.log("tos");
+			document.getElementById("tos").setAttribute("style", "display: block;");
+		} else if (site === "policy") {
+			document.getElementById("policy").setAttribute("style", "display: block;");
+		} else {
+			document.getElementById("main").setAttribute("style", "display: block;");
+		}
+	};
+
+	function sendTo(site) {
+		let baseUrl = document.baseURI.split("?")[0];
+		let currentSite = new URLSearchParams(document.URL.split("?")[1]).get("site");
+		if (currentSite === site || (currentSite === null && site === "main")) return;
+
+		window.location = site === "main" ? baseUrl : baseUrl += `?site=${site}`;
+	}
+</script>
+
+<style>
+	button {
+		padding: 1rem 1.5rem;
+		background-color: #5865f2;
+		border-radius: 3px;
+		border-color: none;
+		border-width: 0px;
+		top: 10rem;
+		margin-left: 20px;
+		cursor: pointer;
+	}
+
+	button:hover {
+		background-color: #4752c4;
+	}
+
+
+	html {
+		color-scheme: dark;
+	}
+
+	.listTitle {
+		margin-bottom: 0;
+	}
+
+	ul {
+		margin-top: 10px;
+	}
+
+
+	#logo {
+		float: left;
+		position: absolute;
+		left: 5rem;
+		top: 5rem;
+		border-radius: 40%;
+		height: 7.5rem;
+		cursor: pointer;
+	}
+
+	.date {
+		background-color: #100f13;
+		color: blanchedalmond;
+	}
+
+	.content {
+		margin: 0 auto;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		font-family: "Helvetica Neue", Helvetica, Arial, FreeSans, sans-serif;
+		align-items: center;
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	p {
+		align-self: flex-start;
+		margin-top: 0;
+		padding-left: 1.25rem;
+		padding-right: auto;
+	}
+
+	p:where(#updated) {
+		margin-top: 1rem;
+		padding-left: 0;
+		font-size: 1rem;
+	}
+
+
+	#caption {
+		padding-top: 10rem;
+		font-size: 2.5rem;
+	}
+
+	.title {
+		align-self: flex-start;
+	}
+
+	h1 {
+		flex: auto;
+	}
+
+	@media only screen and (max-width: 1000px) {
+		#content {
+			max-width: calc(100vw - 5vw);
+		}
+
+		#logo {
+			align-self: center;
+			left: auto;
+			top: 2rem;
+		}
+	}
+</style>
