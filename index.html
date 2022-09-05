@@ -10,11 +10,13 @@
 
 <body>
 	<div class="content" id="main">
-		<img onclick="sendTo('main')" id="logo"
-			src="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
-			alt="Multiversus Logo">
-		<button onclick="sendTo('tos')">Terms of Service</button><button onclick="sendTo('policy')">Privacy
-			Policy</button>
+		<nav>
+			<img onclick="sendTo('main')" id="logo"
+				src="https://cdn.discordapp.com/app-icons/1009162525675368538/8b68755e7372822a5d230201c38a687b.png?size=256"
+				alt="Multiversus Logo">
+			<button onclick="sendTo('tos')">Terms of Service</button><button onclick="sendTo('policy')">Privacy
+				Policy</button>
+		</nav>
 	</div>
 	<div class="content" id="tos">
 		<img onclick="sendTo('main')" id="logo"
@@ -137,7 +139,8 @@
 <script>
 	window.onload = function () {
 		let site = new URLSearchParams(document.URL.split("?")[1]).get("site");
-		let baseUrl = document.baseURI.split("?")[0];
+		let baseUrl = document.URL.charAt(document.URL.length - 1) === "/" ? document.URL.slice(0, document.URL.length - 1).split("?")[0] : document.URL.split("?")[0];
+		console.log(baseUrl);
 		Array.from(document.getElementsByClassName("content")).forEach(site => site.setAttribute("style", "display: none;"));
 		if (site === "tos") {
 			console.log("tos");
@@ -150,15 +153,23 @@
 	};
 
 	function sendTo(site) {
-		let baseUrl = document.baseURI.split("?")[0];
+		let url = document.URL.split("?")[0];
+		let baseUrl = url.charAt(url.length - 1) === "/" ? url.slice(0, url.length - 1) : url;
+		console.log(baseUrl, document.URL, baseUrl + `?site=${site}`);
 		let currentSite = new URLSearchParams(document.URL.split("?")[1]).get("site");
 		if (currentSite === site || (currentSite === null && site === "main")) return;
 
-		window.location = site === "main" ? baseUrl : baseUrl += `?site=${site}`;
+		window.location = site === "main" ? baseUrl : baseUrl + `?site=${site}`;
 	}
 </script>
 
 <style>
+	nav {
+		display: flex;
+		flex: auto;
+		flex-flow: row;
+	}
+
 	button {
 		padding: 1rem 1.5rem;
 		background-color: #5865f2;
@@ -167,7 +178,9 @@
 		border-width: 0px;
 		top: 10rem;
 		margin-left: 20px;
+		margin-bottom: 0;
 		cursor: pointer;
+		height: max-content;
 	}
 
 	button:hover {
@@ -190,7 +203,7 @@
 
 	#logo {
 		float: left;
-		position: absolute;
+		/* position: absolute; */
 		left: 5rem;
 		top: 5rem;
 		border-radius: 40%;
